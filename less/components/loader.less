@@ -1,0 +1,75 @@
+@loader-green: #008744;
+@loader-blue: #0057e7;
+@loader-red: #d62d20;
+@loader-yellow: #ffa700;
+
+.ajax-loader-android {
+	position: relative;
+	height: 30px;
+
+	.loader {
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		left: 50%;
+		margin-left: -15px;
+
+		&:before {
+			content:'';
+			display: block;
+		}
+		.circular {
+			animation: rotate 2s linear infinite;
+			transform-origin: center center;
+			position: absolute;
+			width: 30px; height: 30px;
+			top: 0; bottom: 0; left: 0; right: 0;
+			margin: auto;
+
+			.path {
+				stroke-dasharray: 1,200;
+				stroke-dashoffset: 0;
+				animation:
+						dash 1.5s ease-in-out infinite,
+						color 6s ease-in-out infinite
+			;
+				stroke-linecap: round;
+			}
+		}
+	}
+}
+
+
+@keyframes rotate{
+	100%{
+		transform: rotate(360deg);
+	}
+}
+@keyframes dash{
+	0%{
+		stroke-dasharray: 1,100;
+		stroke-dashoffset: 0;
+	}
+	50%{
+		stroke-dasharray: 44,100;
+		stroke-dashoffset: -17px;
+	}
+	100%{
+		stroke-dasharray: 44,100;
+		stroke-dashoffset: -62px;
+	}
+}
+@keyframes color{
+	100%, 0%{
+		stroke: @loader-red;
+	}
+	40%{
+		stroke: @loader-blue;
+	}
+	66%{
+		stroke: @loader-green;
+	}
+	80%, 90%{
+		stroke: @loader-yellow;
+	}
+}

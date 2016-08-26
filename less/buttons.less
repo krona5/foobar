@@ -1,0 +1,23 @@
+button {
+	padding: 7px 0;
+	border: 1px solid @blue;
+	color: @blue;
+	background-color: @white;
+	border-radius: 2px;
+	width: 180px;
+	padding: 7px 0;
+	outline: none;
+	-webkit-appearance: none;
+	transition: 0.1s all linear;
+
+
+	&:hover {
+		background-color: @grey-light;
+	}
+	&:active {
+		box-shadow: 0px 5px 10px -5px @shadow-dark inset;
+	}
+	&.secondary {
+		border-color: @button-border-secondary;
+	}
+}
