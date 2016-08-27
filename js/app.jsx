@@ -4,10 +4,10 @@ var React = require('react')
 	,Route = require('react-router').Route
 	,browserHistory = require('react-router').hashHistory;
 
-var Index = require('./index.jsx')
-	,Options = require('./options.jsx');
+import Index from './index.jsx'
+import Options from './options.jsx'
 
-require('underscore').mixin(require('./helper/mixins'));
+require('underscore').mixin(require('foo-lib/utils/underscore-mixins'));
 
 ReactDom.render((
 	<Router history={browserHistory}>

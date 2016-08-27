@@ -7,7 +7,6 @@ var copy = require('gulp-copy')
 	,gulpIf = require('gulp-if')
 	,gulpLess = require('gulp-less')
 	,gulpUglify = require('gulp-uglify')
-	,reactify = require('reactify')
 	,source = require("vinyl-source-stream");
 
 var argv = require('yargs').argv
@@ -19,7 +18,7 @@ gulp.task('statics', function(){
 });
 
 gulp.task('style', function(){
-	if(!argv.prod) gulp.watch(['less/**'], ['style']);
+	if(!argv.prod) gulp.watch(['less/**'], ['style', 'node_modules/foo-lib/less/**']);
 
 	return gulp.src('less/app.less')
 		.pipe(gulpLess())
@@ -28,11 +27,11 @@ gulp.task('style', function(){
 });
 
 gulp.task('browserify', function(){
-	if(!argv.prod) gulp.watch(['js/**', 'config/**'], ['browserify', 'browserify-content-script']);
+	if(!argv.prod) gulp.watch(['js/**', 'config/**', 'node_modules/foo-lib/components/**', 'node_modules/foo-lib/mixin/**'], ['browserify', 'browserify-content-script']);
 	if(!argv.prod) gulp.watch(statics, ['init']);
 
 	return browserify({debug: !argv.prod})
-		.transform(reactify)
+		.transform("babelify", {presets: ["es2015", "react"]})
 		.add('js/app.jsx')
 		.bundle()
 		.pipe(source("app.js"))
@@ -43,6 +42,7 @@ gulp.task('browserify', function(){
 
 gulp.task('browserify-content-script', function () {
 	return browserify({debug: !argv.prod})
+		.transform("babelify", {presets: ["es2015", "react"]})
 		.add('js/content-script/index.js')
 		.bundle()
 		.pipe(source('content-script.js'))
@@ -54,3 +54,5 @@ gulp.task('browserify-content-script', function () {
 gulp.task('init', ['statics']);
 
 gulp.task('build', ['browserify', 'browserify-content-script', 'style']);
+
+gulp.task('default', ['build']);

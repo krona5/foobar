@@ -1,27 +1,11 @@
-var React  = require('react');
+import React from 'react'
 
-var MenuStrip = require('./components/menu-strip.jsx')
-	,MainContent = require('./components/main-content.jsx');
-
-var Index = React.createClass({
-	getInitialState: function () {
-		return {
-			filter: ''
-		};
-	},
-	filterUpdated: function (data) {
-		this.setState({
-			filter: data.value
-		});
-	},
-	render: function(){
+export default class MainContent extends React.Component {
+	render() {
 		return (
-			<div className="container">
-				<MenuStrip onChange={this.filterUpdated} />
-				<MainContent filter={this.state.filter} />
+			<div className="main-content">
+
 			</div>
 		);
 	}
-});
-
-module.exports = Index;
+}
