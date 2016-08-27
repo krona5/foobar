@@ -3,6 +3,8 @@ import React from 'react'
 
 import {utilClipboardCopy as copyToClipboard, InputText, DummyCheckbox} from 'foo-lib';
 
+import emitter from '../utils/toast-emitter'
+
 export default class Time extends React.Component {
 	constructor(){
 		super();
@@ -13,7 +15,7 @@ export default class Time extends React.Component {
 			convertedDateString: ""
 		};
 
-		_.bindAll(this, 'updateTimer', 'componentDidMount', 'copyTime', 'convertToDateString', 'convertToTimestamp', 'copyConvertedTimestamp', 'copyConvertedDateString');
+		_.bindAll(this, 'updateTimer', 'componentDidMount', 'copyTime', 'copyTimeString', 'convertToDateString', 'convertToTimestamp', 'copyConvertedTimestamp', 'copyConvertedDateString');
 	}
 
 	updateTimer(isActive) {
@@ -29,6 +31,10 @@ export default class Time extends React.Component {
 	}
 	copyText(text) {
 		copyToClipboard(text);
+		emitter.emit('toast', {
+			id: "COMP.TIME",
+			message: "Copied!"
+		});
 	}
 	copyTime() {
 		this.copyText(this.state.currentTime);

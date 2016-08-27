@@ -1,9 +1,11 @@
 import React from 'react';
 
-import {TabControl} from 'foo-lib';
+import {TabControl, Toast} from 'foo-lib';
 
 import Time from './components/time.jsx'
 import Encoder from './components/encoder.jsx'
+
+import emitter from './utils/toast-emitter'
 
 const Tabs = [
 	{
@@ -21,7 +23,7 @@ export default class MainContent extends React.Component {
 		return (
 			<div className="main-content">
 				<TabControl data={Tabs} />
-
+				<Toast emitter={emitter} />
 			</div>
 		);
 	}
