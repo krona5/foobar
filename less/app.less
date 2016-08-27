@@ -25,8 +25,8 @@ h1,h2,h3,h4,h5,h6 {
 html,body {
 	margin: 0;
 	color: @text-color;
-	width: 400px;
-	min-height: 200px;
+	width: 450px;
+	min-height: 240px;
 }
 
 #react-container, .container {
@@ -41,3 +41,14 @@ html,body {
 	display: flex;
 	flex-direction: column;
 }
+
+@import "components/main";
+@import "components/hover-text";
+
+@import "node_modules/foo-lib/less/tab-control";
+@import "node_modules/foo-lib/less/input-text";
+@import "node_modules/foo-lib/less/dummy-checkbox";
+
+.tab-control-mixin(@primary, @primary);
+.dummy-input-text-mixin(@light-text, @card-border, @card-border, #FFF, @primary);
+.dummy-checkbox-mixin(@secondary);

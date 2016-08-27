@@ -18,7 +18,7 @@ gulp.task('statics', function(){
 });
 
 gulp.task('style', function(){
-	if(!argv.prod) gulp.watch(['less/**'], ['style', 'node_modules/foo-lib/less/**']);
+	if(!argv.prod) gulp.watch(['less/**', 'node_modules/foo-lib/less/**'], ['style']);
 
 	return gulp.src('less/app.less')
 		.pipe(gulpLess())

@@ -1,0 +1,71 @@
+@import "../color";
+
+.time-wrapper {
+	padding: 0 10px;
+
+	.date-now {
+		label {
+			width: 100%;
+			padding: 5px 0 0;
+		}
+		.input-wrapper {
+			border-bottom: 1px solid @card-border;
+			position: relative;
+			width: 100%;
+
+			.copy-icon {
+				width: 30px;
+				height: 30px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				cursor: pointer;
+
+				&:hover {
+					background-color: #EEE;
+				}
+				&:active {
+					background-color: #DDD;
+				}
+			}
+			input {
+				border: 0;
+				padding: 0 30px 0 0;
+				height: 30px;
+				width: 100%;
+			}
+		}
+	}
+
+	.convert-date {
+		margin-top: 15px;
+
+		.converter-container {
+			display: flex;
+
+			.timestamp-wrapper, .date-wrapper {
+				flex: 1;
+				padding-right: 30px;
+				position: relative;
+
+				.copy-icon {
+					position: absolute;
+					top: 0;
+					right: 0;
+					margin-top: -3px;
+
+					&:hover {
+						background-color: @card-border;
+					}
+				}
+			}
+			.separator {
+				width: 40px;
+				height: 30px;
+				background: url(/images/separater.png) no-repeat center center transparent;
+				background-size: 30px 30px;
+			}
+
+		}
+	}
+}
