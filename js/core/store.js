@@ -1,48 +1,36 @@
-var _ = require('underscore');
+import _ from 'underscore';
 
-var saveScriptTimeout;
+var settings;
 
 function initStorage() {
-	chrome.storage.sync.set({scripts: []});
-}
-
-function saveScripts(data) {
-	var toSave;
-
-	if(saveScriptTimeout) saveScriptTimeout = null;
-
-	toSave = [];
-
-	_.each(data, function (script) {
-		if(script.name.trim() != '' && script.url.trim() != '') {
-			toSave.push(script);
+	const settings = {
+		implicit: {
+			lastOpenedTab: 0
 		}
-	});
+	};
 
 	chrome.storage.sync.set({
-		scripts: toSave
+		settings: settings
 	});
+
+	return settings;
 }
 
-module.exports = {
-	getScripts: function (cb) {
-		chrome.storage.sync.get('scripts', function (results) {
-			var scripts = results.scripts;
 
-			if(!Array.isArray(scripts)) {
-				initStorage();
-				scripts = [];
+export default {
+	getSettings: function (cb) {
+		chrome.storage.sync.get('settings', function (results) {
+			settings = results.settings;
+
+			if(!settings || !settings.implicit) {
+				settings = initStorage();
 			}
 
-			cb(scripts);
+			cb(settings);
 		});
 	},
-	saveScripts: function (data) {
-		if(saveScriptTimeout) {
-			clearTimeout(saveScriptTimeout);
-			saveScriptTimeout = null;
-		}
-
-		saveScriptTimeout = setTimeout(saveScripts.bind(null, _.clone(data)), 250);
+	saveImplicit: function (data) {
+		_.extend(settings.implicit, data);
+		chrome.storage.sync.set({settings: settings});
 	}
 };

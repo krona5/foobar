@@ -7,7 +7,7 @@ var React = require('react')
 import Index from './index.jsx'
 import Options from './options.jsx'
 
-require('underscore').mixin(require('foo-lib/utils/underscore-mixins'));
+require('underscore').mixin(require('foo-lib').utilUnderscoreMixin);
 
 ReactDom.render((
 	<Router history={browserHistory}>
