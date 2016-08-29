@@ -16,7 +16,7 @@ export default class ComingSoon extends React.Component {
 			<div className="coming-soon" style={{padding: '0 10px'}}>
 				Coming soon more...
 				<div style={{paddingTop: '20px'}}>
-					Give us you feedback and tell us what you want more <a onClick={this.openSupportPage} href="#" style={linkStyle}>here</a>.
+					Give us your feedback and tell us what you want more <a onClick={this.openSupportPage} href="#" style={linkStyle}>here</a>.
 					<br/>
 					<br/>
 					We would love to here from you.
