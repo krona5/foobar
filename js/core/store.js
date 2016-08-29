@@ -5,7 +5,9 @@ var settings;
 function initStorage() {
 	const settings = {
 		implicit: {
-			lastOpenedTab: 0
+			lastOpenedTab: 0,
+			isEncoding: true,
+			encodingMethodIndex: 0
 		}
 	};
 

@@ -18,17 +18,6 @@ export default class Time extends React.Component {
 		_.bindAll(this, 'updateTimer', 'componentDidMount', 'copyTime', 'copyTimeString', 'convertToDateString', 'convertToTimestamp', 'copyConvertedTimestamp', 'copyConvertedDateString');
 	}
 
-	updateTimer(isActive) {
-		var self = this;
-
-		this.setState({
-			currentTime: Date.now()
-		});
-
-		if(isActive) {
-			setTimeout(()=>self.updateTimer(isActive), 16.67); // 1000ms/60 = 16.67 for 60fps
-		}
-	}
 	copyText(text) {
 		copyToClipboard(text);
 		emitter.emit('toast', {
@@ -79,11 +68,22 @@ export default class Time extends React.Component {
 		this.copyText(this.state.convertedDateString);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		this.updateTimer(nextProps.isActive);
+	updateTimer() {
+		var self = this;
+
+		this.setState({
+			currentTime: Date.now()
+		});
+
+		if(this.props.isActive) {
+			setTimeout(()=>self.updateTimer(), 16.67); // 1000ms/60 = 16.67 for 60fps
+		}
+	}
+	componentWillReceiveProps() {
+		setTimeout(()=>this.updateTimer(), 0); // Time to reflect latest props before calling updateTimer
 	}
 	componentDidMount() {
-		this.updateTimer(this.props.isActive);
+		this.updateTimer();
 	}
 
 	render() {
