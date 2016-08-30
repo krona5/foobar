@@ -43,6 +43,10 @@ export default class Encoder extends React.Component {
 		});
 
 		this.getResult(this.state.isEncoding, this.state.selectedEncoder, value);
+
+		store.saveImplicit({
+			encodeDecodeInput: value
+		});
 	}
 	getResult(isEncoding, selectedEncoder, value) {
 		var method
@@ -109,16 +113,23 @@ export default class Encoder extends React.Component {
 	componentDidMount() {
 		var self = this
 			,isEncoding
-			,encodingMethod;
+			,encodingMethod
+			,input;
 
 		store.getSettings((settings)=>{
 			isEncoding = _.at(settings, 'implicit.isEncoding');
 			encodingMethod = _.at(settings, 'implicit.encodingMethodIndex');
+			input = _.at(settings, 'implicit.encodeDecodeInput');
 
 			self.setState({
 				isEncoding: isEncoding,
-				selectedEncoder: encodingMethod
+				selectedEncoder: encodingMethod,
+				input: input
 			});
+
+			if(undefined != input && undefined != isEncoding && undefined != encodingMethod) {
+				self.getResult(isEncoding, encodingMethod, input);
+			}
 		})
 	}
 	render() {

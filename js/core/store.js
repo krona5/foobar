@@ -7,7 +7,8 @@ function initStorage() {
 		implicit: {
 			lastOpenedTab: 0,
 			isEncoding: true,
-			encodingMethodIndex: 0
+			encodingMethodIndex: 0,
+			encodeDecodeInput: ''
 		}
 	};
 
