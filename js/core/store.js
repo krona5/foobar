@@ -8,7 +8,8 @@ function initStorage() {
 			lastOpenedTab: 0,
 			isEncoding: true,
 			encodingMethodIndex: 0,
-			encodeDecodeInput: ''
+			encodeDecodeInput: '',
+			numberSavedCustomBase: 0
 		}
 	};
 

@@ -1,0 +1,49 @@
+.number-wrapper {
+	padding: 0 10px;
+
+	.row {
+		display: flex;
+		margin-top: 20px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+		> div {
+			position: relative;
+			flex: 1;
+			padding-right: 30px;
+
+			&.separator {
+				width: 10px;
+				padding: 0;
+				flex: none;
+			}
+			&.custom-base-wrapper {
+				display: flex;
+
+				.bases {
+					width: 150px;
+				}
+				.custom-base-input {
+					flex: 1;
+					padding-left: 20px;
+				}
+				.hover-text {
+					top: -3px;
+				}
+			}
+		}
+		.hover-text {
+			position: absolute;
+			top: 13px;
+			right: 0;
+
+			&:hover {
+				background-color: @hover;
+			}
+			&:active {
+				background-color: @hover-active;
+			}
+		}
+	}
+}

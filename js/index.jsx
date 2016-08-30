@@ -5,6 +5,7 @@ import {TabControl, Toast, Loader} from 'foo-lib';
 
 import Time from './components/time.jsx'
 import Encoder from './components/encoder.jsx'
+import Numbers from './components/numbers.jsx'
 import ComingSoon from './components/coming-soon.jsx'
 
 import emitter from './utils/toast-emitter'
@@ -18,6 +19,10 @@ const Tabs = [
 	{
 		text: 'Encode',
 		component: Encoder
+	},
+	{
+		text: 'Numbers',
+		component: Numbers
 	},
 	{
 		text: 'More',
