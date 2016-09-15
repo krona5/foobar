@@ -44,6 +44,7 @@ html,body {
 
 @import "components/main";
 @import "components/hover-text";
+@import "components/input-wrapper";
 
 @import "node_modules/foo-lib/less/tab-control";
 @import "node_modules/foo-lib/less/input-text";
@@ -52,9 +53,11 @@ html,body {
 @import "node_modules/foo-lib/less/on-off-switch";
 @import "node_modules/foo-lib/less/loader";
 @import "node_modules/foo-lib/less/dummy-select";
+@import "node_modules/foo-lib/less/color-picker";
 
 .tab-control-mixin(@primary, @primary);
 .dummy-input-text-mixin(@light-text, @card-border, @card-border, #FFF, @primary);
 .toast-mixin();
 .on-off-switch-mixin(@primary);
 .dummy-select-mixin(@card-border, @card-border-darker, @highlight, @shadow);
+.color-picker-mixing();

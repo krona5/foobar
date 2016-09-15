@@ -1,10 +1,11 @@
 import _ from 'underscore';
 import React from 'react';
 
-import {InputText, DummySelect} from 'foo-lib';
+import DummySelect from 'foo-lib/components/dummy-select.jsx';
+import InputText from 'foo-lib/components/input-text.jsx';
 
 import store from '../core/store'
-import {utilClipboardCopy} from 'foo-lib';
+import {default as utilClipboardCopy} from 'foo-lib/utils/clipboard-copy';
 import emitter from '../utils/toast-emitter';
 
 var bases = [];

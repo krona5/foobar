@@ -1,7 +1,8 @@
 import _ from 'underscore';
 import React from 'react'
 
-import {utilClipboardCopy as copyToClipboard, InputText, DummyCheckbox} from 'foo-lib';
+import InputText from 'foo-lib/components/input-text.jsx';
+import {default as copyToClipboard} from 'foo-lib/utils/clipboard-copy';
 
 import emitter from '../utils/toast-emitter'
 

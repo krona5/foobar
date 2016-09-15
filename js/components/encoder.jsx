@@ -1,11 +1,13 @@
 import _ from 'underscore'
 import React from 'react'
 
-import {OnOffSwitch, DummySelect, InputText} from 'foo-lib'
+import OnOffSwitch from 'foo-lib/components/on-off-switch.jsx';
+import DummySelect from 'foo-lib/components/dummy-select.jsx';
+import InputText from 'foo-lib/components/input-text.jsx';
 
 import store from '../core/store';
-import {utilClipboardCopy} from 'foo-lib';
 import emitter from '../utils/toast-emitter';
+import {default as utilClipboardCopy} from 'foo-lib/utils/clipboard-copy';
 
 const encoders = [
 	{

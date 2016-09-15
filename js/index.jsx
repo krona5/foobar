@@ -1,12 +1,14 @@
 import _ from 'underscore';
 import React from 'react';
 
-import {TabControl, Toast, Loader} from 'foo-lib';
+import TabControl from 'foo-lib/components/tab-control.jsx';
+import Toast from 'foo-lib/components/toast.jsx';
+import Loader from 'foo-lib/components/loader.jsx';
 
 import Time from './components/time.jsx'
 import Encoder from './components/encoder.jsx'
 import Numbers from './components/numbers.jsx'
-import ComingSoon from './components/coming-soon.jsx'
+import Colors from './components/colors.jsx';
 
 import emitter from './utils/toast-emitter'
 import store from './core/store'
@@ -25,8 +27,8 @@ const Tabs = [
 		component: Numbers
 	},
 	{
-		text: 'More',
-		component: ComingSoon
+		text: 'Colors',
+		component: Colors
 	}
 ];
 
