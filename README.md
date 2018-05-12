@@ -10,7 +10,7 @@ Chrome extension to ease up developer's mundane tasks.
 Run the following command
 
 * Install node modules: `npm install`
-* Build static files, only for first time: `git init`
-* Run build: `git build` use "--prod" and "NODE_ENV=production" argument when deploying
+* Build static files, only for first time: `gulp init`
+* Run build: `gulp build` use "--prod" and "NODE_ENV=production" argument when deploying
 
 git build has watch, so no need of restarting the server.
