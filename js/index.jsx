@@ -40,7 +40,7 @@ export default class MainContent extends React.Component {
 			selectedTab: 0
 		};
 
-		_.bindAll(this, 'tabUpdated');
+		this.tabUpdated = this.tabUpdated.bind(this);
 	}
 
 	tabUpdated(tabIndex) {

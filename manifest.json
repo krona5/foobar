@@ -2,12 +2,12 @@
 	"manifest_version": 2,
 	"name": "Foobar",
 	"description": "Making developers life easy.",
-	"version": "2.0.0.0",
+	"version": "2.1.0",
 	"short_name": "Foobar",
 	"browser_action": {
 		"default_icon": "images/logo.png",
 		"default_popup": "index.html",
-		"default_title": "Inject Script!"
+		"default_title": "Foobar"
 	},
 	"background": {},
 	"icons": {
